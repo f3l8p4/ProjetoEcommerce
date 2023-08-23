@@ -16,8 +16,13 @@ const routes: Routes = [
     component:CategoriaComponent,
     children:[
       {
-        path:'',
+        path:'listar',
         component:CategoriaListarComponent
+      },
+      {
+        path:'',
+        redirectTo:'listar',
+        pathMatch:'full'
       },
       {
         path:'form',
