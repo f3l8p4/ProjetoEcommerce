@@ -1,47 +1,17 @@
 <button class="btn bnt-primary" routerLink="form">Novo</button>
-<div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Editar</th>
-          <th scope="col">Excluir</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>notebook</td>
-          <td>
-              <button type="button" class="btn btn-warning">editar</button>
-          </td>
-          <td>
-              <button type="button" class="btn btn-danger">excluir</button>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>computadores</td>
-          <td>
-              <button type="button" class="btn btn-warning">editar</button>
-          </td>
-          <td>
-              <button type="button" class="btn btn-danger">excluir</button>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Smartphones</td>
-          <td>
-              <button type="button" class="btn btn-warning">editar</button>
-          </td>
-          <td>
-              <button type="button" class="btn btn-danger">excluir</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<table>
+  <tbody>
+    <tr *ngFor="let categoria of dados">
+      <th scope="row">  1  </th>
+        <td>{{categoria.descricao}}</td>
+        <td>
+          <button class="btn btn-warn">Editar</button>
+        </td>
+        <td>
+          <button class="btn btn-danger">Excluir</button>
+        </td>
+    </tr>
+  </tbody>
+</table>
   
 <router-outlet></router-outlet>
