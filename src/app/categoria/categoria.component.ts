@@ -13,7 +13,7 @@ export class CategoriaComponent implements OnInit{
   }
   ngOnInit(): void {
     this.categoria_service.listar().on('value',(snapshot:any) =>{
-      this.dados = Object(snapshot.values(snapshot.val()))
+      this.dados = Object.values(snapshot.val())
     })
 
   }
