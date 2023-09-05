@@ -5,6 +5,9 @@ import { MainComponent } from './main/main.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CategoriaListarComponent } from './categoria/categoria-listar/categoria-listar.component';
 import { CategoriaFormComponent } from './categoria/categoria-form/categoria-form.component';
+import { FormaPagamentoComponent } from './forma-pagamento/forma-pagamento.component';
+import { FormaPagamentoListarComponent } from './forma-pagamento/forma-pagamento-listar/forma-pagamento-listar.component';
+import { FormaPagamentoFormComponent } from './forma-pagamento/forma-pagamento-form/forma-pagamento-form.component';
 
 const routes: Routes = [
   {
@@ -27,6 +30,20 @@ const routes: Routes = [
       {
         path:'form',
         component:CategoriaFormComponent
+      }
+    ]
+  },
+  {
+    path:'forma-pagamento',
+    component:FormaPagamentoComponent,
+    children:[
+      {
+        path:'listagemPagamento',
+        component:FormaPagamentoListarComponent
+      },
+      {
+        path:'formaPagamento-form',
+        component:FormaPagamentoFormComponent
       }
     ]
   }

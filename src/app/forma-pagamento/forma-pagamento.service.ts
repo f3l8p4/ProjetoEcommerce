@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from '../firebase.service';
-import { AppModule } from '../app.module';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService {
+export class FormaPagamentoService {
 
-  constructor( public firebase_service: FirebaseService) { }
-
+  constructor(public firebaseService:FirebaseService) { }
   ref(){
-    return this.firebase_service.ref().child('/categoria');
+    return this.firebaseService.ref().child('/forma_pagamento');
   }
 
   salvar(dados:any){
@@ -33,5 +31,4 @@ export class CategoriaService {
     .update(dados)
     .then();
   }
-  
 }

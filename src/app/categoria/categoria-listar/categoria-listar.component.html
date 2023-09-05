@@ -1,17 +1,31 @@
-<button class="btn bnt-primary" routerLink="form">Novo</button>
+<div style="display:flex;justify-content: right;">
+  <button 
+      class="btn btn-primary"
+      routerLink="../form"
+  >
+      <span class="bi bi-plus"></span>
+      Novo
+  </button>
+</div>
 <table>
   <tbody>
     <tr *ngFor="let categoria of dados">
       <th scope="row">  1  </th>
         <td>{{categoria.descricao}}</td>
+
         <td>
-          <button class="btn btn-warn">Editar</button>
+          <span 
+              class="bi bi-pencil-square"
+              (click)="editar(categoria.indice)"
+          ></span>
         </td>
+        
         <td>
-          <button class="btn btn-danger">Excluir</button>
+          <span class="bi bi-trash" 
+              (click)="excluir(categoria.indice)"
+          ></span>
         </td>
+
     </tr>
   </tbody>
 </table>
-  
-<router-outlet></router-outlet>

@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { CategoriaService } from '../categoria.service';
+import { FormaPagamentoService } from '../forma-pagamento.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-categoria-form',
-  templateUrl: './categoria-form.component.html',
-  styleUrls: ['./categoria-form.component.scss']
+  selector: 'app-forma-pagamento-form',
+  templateUrl: './forma-pagamento-form.component.html',
+  styleUrls: ['./forma-pagamento-form.component.scss']
 })
-export class CategoriaFormComponent {
-  public descricao: string = '';
+export class FormaPagamentoFormComponent {
+  public forma: string = '';
   public indice: String  = '';
 
-  constructor(public categoria_service : CategoriaService, public activated_route:ActivatedRoute){
+  constructor(public formaPagamentoService : FormaPagamentoService, public activated_route:ActivatedRoute){
     this.activated_route.params
     .subscribe(
       (params:any) => {
@@ -19,19 +19,19 @@ export class CategoriaFormComponent {
         // interronper o método
         if (params.indice == undefined) return;
 
-        this.categoria_service.ref()
+        this.formaPagamentoService.ref()
         .child('/' + params.indice)
         .on('value',(snapshot:any) => {
           let dado:any    = snapshot.val();
           this.indice     = params.indice;
-          this.descricao  = dado.descricao;
+          this.forma  = dado.forma;
         });
       }
     );
   }
   salvar(){
-    this.categoria_service.salvar({
-      descricao:this.descricao
+    this.formaPagamentoService.salvar({
+      froma:this.forma
     })
   }
 }
