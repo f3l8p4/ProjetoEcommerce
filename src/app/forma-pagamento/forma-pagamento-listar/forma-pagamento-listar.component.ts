@@ -32,7 +32,7 @@ export class FormaPagamentoListarComponent implements OnInit {
           // Adiciona os elementos no vetor
           // de dados
           this.dados.push({
-            descricao: e.descricao,
+            forma: e.forma,
             indice: Object.keys(snapshot.val())[i]
           });
         }

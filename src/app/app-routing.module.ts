@@ -42,6 +42,11 @@ const routes: Routes = [
         component:FormaPagamentoListarComponent
       },
       {
+        path:'',
+        redirectTo:'listagemPagamento',
+        pathMatch:'full'
+      },
+      {
         path:'formaPagamento-form',
         component:FormaPagamentoFormComponent
       }
