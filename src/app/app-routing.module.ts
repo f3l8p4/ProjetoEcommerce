@@ -11,6 +11,8 @@ import { FormaPagamentoFormComponent } from './forma-pagamento/forma-pagamento-f
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.component';
 import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component';
+import { SubCategoriaComponent } from './sub-categoria/sub-categoria.component';
+import { SubCategoriaFormComponent } from './sub-categoria/sub-categoria-form/sub-categoria-form.component';
 
 const routes: Routes = [
   {
@@ -74,6 +76,16 @@ const routes: Routes = [
       component:UsuarioFormComponent
     }
   ]
+  },
+  {
+    path:'subcategoria',
+    component:SubCategoriaComponent,
+    children:[
+      {
+        path:'forms',
+        component:SubCategoriaFormComponent
+      }
+    ]
   }
 ];
 

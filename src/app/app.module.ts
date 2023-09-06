@@ -19,6 +19,8 @@ import { FormaPagamentoFormComponent } from './forma-pagamento/forma-pagamento-f
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.component';
 import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component';
+import { SubCategoriaComponent } from './sub-categoria/sub-categoria.component';
+import { SubCategoriaFormComponent } from './sub-categoria/sub-categoria-form/sub-categoria-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,8 @@ import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.compon
     UsuarioComponent,
     UsuarioListarComponent,
     UsuarioFormComponent,
+    SubCategoriaComponent,
+    SubCategoriaFormComponent,
   ],
   imports: [
     BrowserModule,
