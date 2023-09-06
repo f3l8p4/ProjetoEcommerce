@@ -1,7 +1,7 @@
 <div style="display:flex;justify-content: right;">
     <button 
         class="btn btn-primary"
-        routerLink="../formaPagamento-form"
+        routerLink="../formUsuario"
     >
         <span class="bi bi-plus"></span>
         Novo
@@ -9,20 +9,20 @@
 </div>
   <table>
     <tbody>
-      <tr *ngFor="let formaPagamento of dados">
-        <th scope="row">  1  </th>
-          <td>{{formaPagamento.forma}}</td>
-  
+      <tr *ngFor="let usuario of dados">
+        <th scope="row" class="pr-4">  1  </th>
+          <td>{{usuario.nome}}</td>
+          <td class="p-4">{{usuario.email}}</td>   
           <td>
             <span 
                 class="bi bi-pencil-square"
-                (click)="editar(formaPagamento.indice)"
+                (click)="editar(usuario.indice)"
             ></span>
           </td>
           
           <td>
             <span class="bi bi-trash" 
-                (click)="excluir(formaPagamento.indice)"
+                (click)="excluir(usuario.indice)"
             ></span>
           </td>
   

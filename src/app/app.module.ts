@@ -16,6 +16,9 @@ import { FormsModule } from '@angular/forms';
 import { FormaPagamentoComponent } from './forma-pagamento/forma-pagamento.component';
 import { FormaPagamentoListarComponent } from './forma-pagamento/forma-pagamento-listar/forma-pagamento-listar.component';
 import { FormaPagamentoFormComponent } from './forma-pagamento/forma-pagamento-form/forma-pagamento-form.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.component';
+import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,9 @@ import { FormaPagamentoFormComponent } from './forma-pagamento/forma-pagamento-f
     FormaPagamentoComponent,
     FormaPagamentoListarComponent,
     FormaPagamentoFormComponent,
+    UsuarioComponent,
+    UsuarioListarComponent,
+    UsuarioFormComponent,
   ],
   imports: [
     BrowserModule,
