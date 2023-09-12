@@ -49,9 +49,12 @@ export class FormProdutoComponent {
         this.categoriaService.ref()
         .child('/' + params.indice)
         .on('value',(snapshot:any) => {
-          let dado:any    = snapshot.val();
-          this.indice     = params.indice;
-          this.descricao  = dado.descricao;
+          let dado:any      = snapshot.val();
+          this.indice       = params.indice;
+          this.nome         = dado.nome;
+          this.preco        = dado.preco;
+          this.descricao    = dado.descricao;
+          this.categoria    = dado.categoria;
         });
       }
     );
@@ -62,11 +65,9 @@ export class FormProdutoComponent {
       nome:this.nome,
       preco:this.preco,
       descricao:this.descricao,
-      categoria:this.categorias,
+      categoria:this.categoria,
     }
     this.produtoService.salvar(dados)
-  }
-  mudar(){
-    console.log(this.indice)
+    console.log(dados)
   }
 }

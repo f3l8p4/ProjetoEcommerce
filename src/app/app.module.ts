@@ -24,6 +24,7 @@ import { SubCategoriaFormComponent } from './sub-categoria/sub-categoria-form/su
 import { ProdutoComponent } from './produto/produto.component';
 import { ListagemProdutoComponent } from './produto/listagem-produto/listagem-produto.component';
 import { FormProdutoComponent } from './produto/form-produto/form-produto.component';
+import { ClienteComponent } from './cliente/cliente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { FormProdutoComponent } from './produto/form-produto/form-produto.compon
     ProdutoComponent,
     ListagemProdutoComponent,
     FormProdutoComponent,
+    ClienteComponent,
   ],
   imports: [
     BrowserModule,
