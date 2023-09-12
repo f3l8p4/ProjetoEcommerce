@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoriaService } from 'src/app/categoria/categoria.service';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-sub-categoria-form',
@@ -8,6 +9,7 @@ import { CategoriaService } from 'src/app/categoria/categoria.service';
 })
 export class SubCategoriaFormComponent {
   public categorias:Array<any> = [];
+  public descricao: string = ''
   constructor( public categoriaService:CategoriaService){
 
     this.categoriaService.listar()
@@ -34,5 +36,11 @@ export class SubCategoriaFormComponent {
 
       
     });
+  }
+  salvar(){
+    this.categoriaService.salvar({
+      descricao:this.descricao,
+      categoria: this.categorias
+    })
   }
 }

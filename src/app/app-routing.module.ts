@@ -13,6 +13,9 @@ import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.
 import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component';
 import { SubCategoriaComponent } from './sub-categoria/sub-categoria.component';
 import { SubCategoriaFormComponent } from './sub-categoria/sub-categoria-form/sub-categoria-form.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { ListagemProdutoComponent } from './produto/listagem-produto/listagem-produto.component';
+import { FormProdutoComponent } from './produto/form-produto/form-produto.component';
 
 const routes: Routes = [
   {
@@ -43,16 +46,16 @@ const routes: Routes = [
     component:FormaPagamentoComponent,
     children:[
       {
-        path:'listagemPagamento',
+        path:'listar',
         component:FormaPagamentoListarComponent
       },
       {
         path:'',
-        redirectTo:'listagemPagamento',
+        redirectTo:'listar',
         pathMatch:'full'
       },
       {
-        path:'formaPagamento-form',
+        path:'form',
         component:FormaPagamentoFormComponent
       }
     ]
@@ -63,16 +66,16 @@ const routes: Routes = [
   component:UsuarioComponent,
   children:[
     {
-      path:'listagemUsuario',
+      path:'listar',
       component:UsuarioListarComponent
     },
     {
       path:'',
-      redirectTo:'listagemUsuario',
+      redirectTo:'listar',
       pathMatch:'full'
     },
     {
-      path:'formUsuario',
+      path:'form',
       component:UsuarioFormComponent
     }
   ]
@@ -84,6 +87,25 @@ const routes: Routes = [
       {
         path:'forms',
         component:SubCategoriaFormComponent
+      }
+    ]
+  },
+  {
+    path:'produto',
+    component:ProdutoComponent,
+    children:[
+      {
+        path:'listar',
+        component:ListagemProdutoComponent
+      },
+      {
+        path:'',
+        redirectTo:'listar',
+        pathMatch:'full'
+      },
+      {
+        path:'form',
+        component:FormProdutoComponent
       }
     ]
   }

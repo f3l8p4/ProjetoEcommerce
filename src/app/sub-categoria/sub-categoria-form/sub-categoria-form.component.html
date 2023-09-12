@@ -1,6 +1,7 @@
 <div style="display:flex;justify-content: right;">
     <button 
       class="btn btn-success"   
+      (click)="salvar()"
     >
       <span class="bi bi-check"></span>
       Salvar
@@ -17,12 +18,14 @@
           *ngFor="let categoria of categorias"
           [value]="categoria.indice"
           [innerHTML]="categoria.descricao"
+          [(ngModel)]="categoria.descricao"
         ></option>
     </select>
     <br/>
     <label for="descricao" class="form-label">Descrição</label>
-    <input 
-      type="text" 
+    <input
+      [(ngModel)]="descricao"
+      type="textarea" 
       class="form-control"        
       name="descricao"
       id="descricao"
