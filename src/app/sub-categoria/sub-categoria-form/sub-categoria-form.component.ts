@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CategoriaService } from 'src/app/categoria/categoria.service';
 import { __values } from 'tslib';
+import { SubCategoriaServiceService } from '../sub-categoria-service.service';
 
 @Component({
   selector: 'app-sub-categoria-form',
@@ -9,8 +10,10 @@ import { __values } from 'tslib';
 })
 export class SubCategoriaFormComponent {
   public categorias:Array<any> = [];
-  public descricao: string = ''
-  constructor( public categoriaService:CategoriaService){
+  public indice:string          = '';
+  public descricao:string       = '';  
+  public categoria:string       = '';
+  constructor( public categoriaService:CategoriaService, public subCategoriaService:SubCategoriaServiceService){
 
     this.categoriaService.listar()
     .once('value',(snapshot:any) => {
@@ -38,9 +41,11 @@ export class SubCategoriaFormComponent {
     });
   }
   salvar(){
-    this.categoriaService.salvar({
-      descricao:this.descricao,
-      categoria: this.categorias
-    })
+    let dados = {
+      categoria:this.categoria,
+      descricao : this.descricao
+    }
+    this.subCategoriaService.salvar(dados)
+
   }
 }
