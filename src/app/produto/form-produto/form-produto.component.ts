@@ -39,6 +39,10 @@ export class FormProdutoComponent {
             descricao: e.descricao,
             indice: Object.keys(snapshot.val())[i]
           });
+          this.subCategorias.push({
+            descricao: e.descricao,
+            categorias:e.categoria,
+          })  
         }
       );
     });
