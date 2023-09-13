@@ -1,0 +1,31 @@
+<div style="display:flex;justify-content: right;">
+    <button 
+        class="btn btn-primary"
+        routerLink="../form"
+    >
+        <span class="bi bi-plus"></span>
+        Novo
+    </button>
+  </div>
+  <table>
+    <tbody>
+      <tr *ngFor="let cliente of dados">
+        <th scope="row">  1  </th>
+          <td>{{cliente.nome}}</td>
+          <td>{{cliente.cpf}}</td>
+          <td>{{cliente.celular}}</td>
+          <td>
+            <span 
+                class="bi bi-pencil-square"
+                (click)="editar(cliente.indice)"
+            ></span>
+          </td>
+          
+          <td>
+            <span class="bi bi-trash" 
+                (click)="excluir(cliente.indice)"
+            ></span>
+          </td>
+      </tr>
+    </tbody>
+  </table>

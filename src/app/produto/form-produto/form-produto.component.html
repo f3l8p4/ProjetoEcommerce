@@ -10,7 +10,7 @@
 <!-- Vertical Form -->
 <form class="row g-3">
   <div class="col-12">
-    <label for="descricao" class="form-label">Nome</label>
+    <label for="nome" class="form-label">Nome</label>
     <input 
       type="text" 
       class="form-control" 
@@ -19,7 +19,7 @@
     >
   </div>
   <div class="col-12">
-    <label for="descricao" class="form-label">Preço</label>
+    <label for="preco" class="form-label">Preço</label>
     <input 
       type="text" 
       class="form-control" 
@@ -37,9 +37,15 @@
     >
   </div>
   <div class="col-12">
-    <label for="descricao" class="form-label">categoria</label>
+    <label for="categoria" class="form-label">categoria</label>
     <select class="form-control" [(ngModel)]="categoria" name="categoria">
         <option *ngFor="let categoria of categorias" [value]="categoria.descricao" [innerHTML]="categoria.descricao" [(ngModel)]="categoria.descricao" ></option>
+    </select>
+  </div>
+  <div class="col-12">
+    <label for="Sub-categoria" class="form-label">Sub-categoria</label>
+    <select class="form-control" [(ngModel)]="subCategoria" name="subCategoria">
+      <option *ngFor="let subCategoria of subCategorias" [value]="subCategoria.descricao" [innerHTML]="subCategoria.descricao" [(ngModel)]="subCategoria.descricao" ></option>
     </select>
   </div>
 </form><!-- Vertical Form -->

@@ -4,11 +4,11 @@ import { FirebaseService } from '../firebase.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ProdutoService {
+export class ClienteService {
 
   constructor(public firebaseService:FirebaseService) { }
   ref(){
-    return this.firebaseService.ref().child('/produto')
+    return this.firebaseService.ref().child('/cliente')
   }
   salvar(dados:any){
     this.ref().push(dados).then();
@@ -29,17 +29,5 @@ export class ProdutoService {
     this.ref().child('/' + indice)
     .update(dados)
     .then();
-  }
-  async get(indice:string){
-    let dado:any;
-    await this.ref().orderByKey()
-    .equalTo(indice)
-    .once('value')
-    .then( function(snapshot) {
-      if (snapshot.exists()) {
-          dado = Object.values(snapshot.val())[0];
-      }
-    });
-    return dado;
   }
 }

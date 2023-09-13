@@ -16,6 +16,9 @@ import { SubCategoriaFormComponent } from './sub-categoria/sub-categoria-form/su
 import { ProdutoComponent } from './produto/produto.component';
 import { ListagemProdutoComponent } from './produto/listagem-produto/listagem-produto.component';
 import { FormProdutoComponent } from './produto/form-produto/form-produto.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.component';
+import { ClienteFormComponent } from './cliente/cliente-form/cliente-form.component';
 
 const routes: Routes = [
   {
@@ -106,6 +109,25 @@ const routes: Routes = [
       {
         path:'form',
         component:FormProdutoComponent
+      }
+    ]
+  },
+  {
+    path:'cliente',
+    component:ClienteComponent,
+    children:[
+      {
+        path:'listar',
+        component:ClienteListarComponent
+      },
+      {
+        path:'',
+        redirectTo:'listar',
+        pathMatch:'full'
+      },
+      {
+        path:'form',
+        component:ClienteFormComponent
       }
     ]
   }
