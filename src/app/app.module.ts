@@ -27,6 +27,8 @@ import { FormProdutoComponent } from './produto/form-produto/form-produto.compon
 import { ClienteComponent } from './cliente/cliente.component';
 import { ClienteFormComponent } from './cliente/cliente-form/cliente-form.component';
 import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AutenticacaoComponent } from './autenticacao/autenticacao.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +53,7 @@ import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.
     ClienteComponent,
     ClienteFormComponent,
     ClienteListarComponent,
+    AutenticacaoComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.
       measurementId: "G-VDXRH4ELBN"
 }),
     AngularFireStorageModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

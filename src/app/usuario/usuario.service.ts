@@ -1,33 +1,34 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from '../firebase.service';
-
+import { RequisicaoService } from '../requisicao.service';
+import { retinaScale } from 'src/assets/vendor/chart.js/helpers';
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  constructor(public firebaseService:FirebaseService) { }
-  ref(){
-    return this.firebaseService.ref().child('/usuario')
+  constructor(
+    private requisicao_service:RequisicaoService
+  ) { }
+
+  salvar(fd:any){
+    return this.requisicao_service.post(fd,'usuario');
   }
-  salvar(dados:any){
-    this.ref().push(dados).then();
+
+  editar(fd:any,id:number){
+    return this.requisicao_service.put(fd,'usuario/' + id);
   }
+
+  load(id:number){
+    return this.requisicao_service.get('/usuario/load/' + id);
+  }
+
   listar(){
-    return this.ref();
+    return this.requisicao_service.get('/usuario/listar');
   }
 
-  excluir(indice:string){
-    this
-    .ref()
-    .child('/' + indice)
-    .remove()
-    .then();
+  excluir(_id:number){
+    return this.requisicao_service.del('/usuario/'+_id);
   }
-
-  editar(indice:string,dados:any){
-    this.ref().child('/' + indice)
-    .update(dados)
-    .then();
-  }
+  
 }

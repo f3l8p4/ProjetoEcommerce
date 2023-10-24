@@ -13,32 +13,16 @@ export class UsuarioFormComponent {
   public senha: string = ''
   public indice: String  = '';
 
-  constructor(public usuarioService : UsuarioService, public activated_route:ActivatedRoute){
-    this.activated_route.params
-    .subscribe(
-      (params:any) => {
-        // Caso seja um registro novo
-        // interronper o método
-        if (params.indice == undefined) return;
+ constructor(private usuarioService:UsuarioService){
+ }
 
-        this.usuarioService.ref()
-        .child('/' + params.indice)
-        .on('value',(snapshot:any) => {
-          let dado:any    = snapshot.val();
-          this.indice     = params.indice;
-          this.nome  = dado.nome;
-          this.email = dado.email;
-          this.senha = dado.senha
-        });
-      }
-    );
+ salvar(){
+  const fd = new FormData()
+  fd.append('nome',this.nome),
+  fd.append('email',this.email),
+  fd.append('senha',this.senha)
+  if(this.indice == ''){
+    this.usuarioService.salvar(fd).subscribe()
   }
-  salvar(){
-    this.usuarioService.salvar({
-      nome:this.nome,
-      email:this.email,
-      senha:this.senha
-    })
-  }
-
+ }
 }

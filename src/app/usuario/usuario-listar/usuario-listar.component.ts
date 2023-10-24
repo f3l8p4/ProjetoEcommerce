@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { Router } from '@angular/router';
 
@@ -7,11 +7,13 @@ import { Router } from '@angular/router';
   templateUrl: './usuario-listar.component.html',
   styleUrls: ['./usuario-listar.component.scss']
 })
-export class UsuarioListarComponent {
+export class UsuarioListarComponent implements OnInit{
   public dados: Array <any> = [];
   constructor( public usuarioService:UsuarioService, public router:Router){
+    
   }
-  ngOnInit(): void {
+  
+ /* ngOnInit(): void {
     this.usuarioService.listar().on('value',(snapshot:any) => {
 
       // Limpa variavel local com os dados
@@ -49,5 +51,14 @@ export class UsuarioListarComponent {
     this
     .router
     .navigate(['/form/form/' + key]);
+  }
+*/
+  listar(){
+    this.usuarioService.listar().subscribe((_dados:any)=>{
+      this.dados = _dados
+    })
+  }
+  ngOnInit(): void {
+      this.listar();
   }
 }
