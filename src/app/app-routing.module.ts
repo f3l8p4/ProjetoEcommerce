@@ -19,15 +19,19 @@ import { FormProdutoComponent } from './produto/form-produto/form-produto.compon
 import { ClienteComponent } from './cliente/cliente.component';
 import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.component';
 import { ClienteFormComponent } from './cliente/cliente-form/cliente-form.component';
+import { AutenticacaoComponent } from './autenticacao/autenticacao.component';
+import { GuardService } from './service/guard.service';
 
 const routes: Routes = [
   {
     path:'',
-    component:MainComponent
+    component:MainComponent,
+    canActivateChild:[GuardService]
   },
   {
     path: 'categoria',
     component:CategoriaComponent,
+    canActivateChild:[GuardService],
     children:[
       {
         path:'listar',
@@ -130,6 +134,10 @@ const routes: Routes = [
         component:ClienteFormComponent
       }
     ]
+  },
+  {
+    path:'login',
+    component:AutenticacaoComponent
   }
 ];
 
